@@ -1,0 +1,15 @@
+﻿Instalar no projeto api e data
+	- Microsoft.EntityFramework
+	- Microsoft.EntityFramework.Design
+	- Microsoft.EntityFramework.SqlServer
+
+dotnet tool install --global dotnet-ef --version 5.0.13
+dotnet tool update --global dotnet-ef --version 5.0.13
+
+dotnet ef migrations add Initial -p DoctorPet.Infrastructure.Data\DoctorPet.Infrastructure.Data.csproj -s DoctorPet.Api\DoctorPet.Api.csproj -c DoctorPetContext
+dotnet ef database update -p DoctorPet.Infrastructure.Data\DoctorPet.Infrastructure.Data.csproj -s DoctorPet.Api\DoctorPet.Api.csproj -c DoctorPetContext
+
+
+dotnet ef database update 0 -p DoctorPet.Infrastructure.Data\DoctorPet.Infrastructure.Data.csproj -s DoctorPet.Api\DoctorPet.Api.csproj -c DoctorPetContext
+dotnet ef migrations remove -p DoctorPet.Infrastructure.Data\DoctorPet.Infrastructure.Data.csproj -s DoctorPet.Api\DoctorPet.Api.csproj -c DoctorPetContext
+
